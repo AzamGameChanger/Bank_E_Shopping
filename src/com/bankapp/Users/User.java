@@ -5,7 +5,6 @@ public class User {
     private String name;
     private String phoneNumber;
 
-
     public User(int ID, String name, String phoneNumber) {
         this.ID = ID;
         this.name = name;
