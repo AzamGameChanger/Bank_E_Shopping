@@ -6,6 +6,4 @@ public class SavingsAccount  extends BankAccount{
         super(type, balance, owner,accountId,customerId);
     }
 
-
-
 }
