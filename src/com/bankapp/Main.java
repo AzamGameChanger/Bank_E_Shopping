@@ -5,6 +5,8 @@ import com.bankapp.Account.CheckingAccount;
 import com.bankapp.Account.SavingsAccount;
 import com.bankapp.Users.Customer;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Main {
@@ -15,6 +17,8 @@ public class Main {
         BankAccount checking = new CheckingAccount("Checking Account", 1000, "Amin", 987654321, 4444);
 
         Customer customer = new Customer(1,"James","1252",checking,savings);
+        System.out.println(customer.getAccounts().size());
+
 
         for (BankAccount bankAccount : customer.getAccounts())
         System.out.println(bankAccount.getAccountID() + "___" + bankAccount.getBalance());
@@ -28,14 +32,14 @@ public class Main {
         }
 
         try {
-            BankAccount familySavings = customer.getAccountType("Savings Account");
-            System.out.println(familySavings.getType());
+            ArrayList<BankAccount> familySavings = customer.getAccountType("Savings Account");
+            System.out.println(familySavings);
         }catch (IllegalArgumentException a){
             System.out.println(a.getMessage());
         }
 
 
-
+        System.out.println(customer.getAccounts().size());
 
 
 

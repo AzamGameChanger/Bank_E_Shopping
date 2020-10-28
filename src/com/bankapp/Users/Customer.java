@@ -4,10 +4,10 @@ import com.bankapp.Account.BankAccount;
 import java.util.ArrayList;
 
 public class Customer extends User {
-    BankAccount checkingAccount;
-    BankAccount savingsAccount;
+    private BankAccount checkingAccount;
+    private BankAccount savingsAccount;
 
-    ArrayList<BankAccount> accounts = new ArrayList<>();
+    private  ArrayList<BankAccount> accounts = new ArrayList<>();
 
     public Customer(int ID, String name, String phoneNumber, BankAccount checkingAccount, BankAccount savingsAccount) {
         super(ID, name, phoneNumber, 0);
@@ -30,13 +30,17 @@ public class Customer extends User {
         throw new IllegalArgumentException("Not found bank account : " + accountID);
     }
 
-    public BankAccount getAccountType(String type){
-//        ArrayList<BankAccount>types=new ArrayList<>();
+    public ArrayList<BankAccount>  getAccountType(String type){
+
+        ArrayList<BankAccount>types=new ArrayList<>();
 
         for(BankAccount accountType: accounts) {
+
             if (accountType.getType().equals(type)) {
-                accounts.add(accountType);
-                return accountType;
+
+                types.add(accountType);
+
+                return types;
             }
         }
 
