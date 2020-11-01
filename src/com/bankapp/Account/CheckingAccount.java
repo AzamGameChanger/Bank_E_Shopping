@@ -1,8 +1,7 @@
 package com.bankapp.Account;
-
 public class CheckingAccount extends BankAccount{
 
-    public CheckingAccount(String type, double balance, String owner, int accountID, int customerID) {
-        super(type, balance, owner, accountID, customerID);
+    public CheckingAccount(AccountType type, double balance, int accountID, String accountHolder) {
+        super(type, balance, accountID, accountHolder);
     }
 }

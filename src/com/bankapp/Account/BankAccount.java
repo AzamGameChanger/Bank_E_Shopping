@@ -1,26 +1,37 @@
 package com.bankapp.Account;
 
 public class BankAccount {
-    private String type;
+    private AccountType type;
     private double balance;
-    private String owner;
     private int accountID;
-    private int customerID;
+    private String accountHolder;
 
-
-    public BankAccount(String type, double balance, String owner,int accountID,int customerID) {
-        this.type=type;
-        this.balance=balance;
-        this.owner = owner;
+    public BankAccount(AccountType type, double balance, int accountID, String accountHolder) {
+        this.type = type;
+        this.balance = balance;
         this.accountID = accountID;
-        this.customerID = customerID;
+        this.accountHolder = accountHolder;
     }
 
-    public String getType() {
+    public double deposit(double value) throws ExceptionInInitializerError {
+        if(value <= 0)
+            throw new ExceptionInInitializerError("Value can not be 0 or less.");
+        balance += value;
+        return balance;
+    }
+
+    public double withdraw(double value) throws ExceptionInInitializerError {
+        if(value <= 0)
+            throw new ExceptionInInitializerError("Value can not be 0 or less.");
+        balance -= value;
+        return balance;
+    }
+
+    public AccountType getType() {
         return type;
     }
 
-    private void setType(String type) {
+    public void setType(AccountType type) {
         this.type = type;
     }
 
@@ -30,15 +41,6 @@ public class BankAccount {
 
     public void setBalance(double balance) {
         this.balance = balance;
-
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
     }
 
     public int getAccountID() {
@@ -49,13 +51,11 @@ public class BankAccount {
         this.accountID = accountID;
     }
 
-    public int getCustomerID() {
-        return customerID;
+    public String getAccountHolder() {
+        return accountHolder;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    public void setAccountHolder(String accountHolder) {
+        this.accountHolder = accountHolder;
     }
-
-
 }
